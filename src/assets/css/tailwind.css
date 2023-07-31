@@ -1,0 +1,8 @@
+/* src/assets/css/tailwind.css */
+
+/* Import the default Tailwind CSS styles */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Add any custom CSS or Tailwind CSS configurations here */
