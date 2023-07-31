@@ -6,7 +6,7 @@
                 <router-link to="/products" class="text-white hover:text-gray-300">Products</router-link>
             </div>
             <div class="flex items-center relative">
-                <input type="text" v-model="searchQuery" @input="handleSearch" @blur="hideSuggestions"
+                <input type="text" v-model="searchQuery" @keyup.enter="hideSuggestions" @input="handleSearch"
                     class="rounded-lg py-2 px-4 bg-gray-700 text-white focus:outline-none focus:ring focus:border-blue-300"
                     placeholder="Search Products">
                 <!-- Suggestions List -->
@@ -57,7 +57,10 @@ export default {
 
         },
         hideSuggestions() {
-            // this.showSuggestions = false;
+            if (this.searchQuery.trim() === "") {
+                // Use router.replace to navigate to the same route without the query parameter
+                this.$router.replace({ query: {} });
+            }
         },
         selectSuggestion(suggestion) {
             this.searchQuery = suggestion.name;

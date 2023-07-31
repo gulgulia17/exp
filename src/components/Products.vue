@@ -69,6 +69,10 @@ export default {
     },
     computed: {
         filteredProducts() {
+            if (typeof this.searchQuery === 'undefined') {
+                return this.products; // If searchQuery is empty, return all products
+            }
+
             if (this.searchQuery.trim() === "") {
                 return this.products; // If searchQuery is empty, return all products
             }
